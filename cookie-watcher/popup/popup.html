@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Watcher</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="cookie-icon">🍪</span>
+          <h1>Cookie Watcher</h1>
+        </div>
+        <div class="stats">
+          <span class="stat-badge" id="cookieCount">0 cookies</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="cookies">Cookies</button>
+      <button class="tab" data-tab="analytics">Analytics</button>
+      <button class="tab" data-tab="settings">Settings</button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="🔍 Search cookies..." />
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+      <!-- Cookies Tab -->
+      <div class="tab-content active" id="cookies-tab">
+        <div class="actions">
+          <button class="btn btn-danger" id="clearAll">Clear All</button>
+          <button class="btn btn-primary" id="exportCookies">Export</button>
+        </div>
+        <div class="cookie-list" id="cookieList">
+          <div class="loading">Loading cookies...</div>
+        </div>
+      </div>
+
+      <!-- Analytics Tab -->
+      <div class="tab-content" id="analytics-tab">
+        <div class="analytics-grid">
+          <div class="analytics-card">
+            <h3>Total Cookies</h3>
+            <p class="analytics-value" id="totalCookies">0</p>
+          </div>
+          <div class="analytics-card">
+            <h3>Session Cookies</h3>
+            <p class="analytics-value" id="sessionCookies">0</p>
+          </div>
+          <div class="analytics-card">
+            <h3>Persistent Cookies</h3>
+            <p class="analytics-value" id="persistentCookies">0</p>
+          </div>
+          <div class="analytics-card">
+            <h3>Third-Party</h3>
+            <p class="analytics-value" id="thirdPartyCookies">0</p>
+          </div>
+        </div>
+        <div class="chart-container">
+          <h3>Cookie Statistics</h3>
+          <div id="cookieChart" style="padding: 20px; text-align: center; color: #667eea;">
+            View detailed cookie analytics here
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Tab -->
+      <div class="tab-content" id="settings-tab">
+        <div class="settings-list">
+          <div class="setting-item">
+            <label>
+              <input type="checkbox" id="autoRefresh" />
+              <span>Auto-refresh on page change</span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label>
+              <input type="checkbox" id="notifyChanges" />
+              <span>Notify on cookie changes</span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label>
+              <input type="checkbox" id="blockThirdParty" />
+              <span>Block third-party cookies</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
